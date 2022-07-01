@@ -1,0 +1,5 @@
+<WCH v="2">
+  <item n="TCCR0" r="0" s="False" e="False" i="135"/>
+  <item n="TCNT0" r="0" s="False" e="False" i="144"/>
+  <item n="_time_count" r="0" s="True" e="False" i="608"/>
+</WCH>

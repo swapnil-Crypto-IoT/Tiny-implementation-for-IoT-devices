@@ -1,0 +1,682 @@
+------------i 0 
+1. before_ LCS13: 0123456789abcdef0123456789abcdef
+2. LCS13: 68acf13579bde02468acf13579bde024
+3. subyte: 79bde071
+6. xorcount= 00000000
+5. RCi: 68acf135
+6. return_key: 68acf13579bde02468acf13579bde071
+
+------------i 1 
+1. before_ LCS13: 68acf13579bde02468acf13579bde071
+2. LCS13: 9e26af37bc048d159e26af37bc0e2d15
+3. subyte: bc0e2d9c
+6. xorcount= 08000000
+5. RCi: 9626af37
+6. return_key: 9e26af37bc048d159626af37bc0e2d9c
+
+------------i 2 
+1. before_ LCS13: 9e26af37bc048d159626af37bc0e2d9c
+2. LCS13: d5e6f78091a2b2c4d5e6f781c5b393c4
+3. subyte: c5b393f1
+6. xorcount= 10000000
+5. RCi: c5e6f781
+6. return_key: d5e6f78091a2b2c4c5e6f781c5b393f1
+
+------------i 3 
+1. before_ LCS13: d5e6f78091a2b2c4c5e6f781c5b393f1
+2. LCS13: def01234565898bcdef038b6727e3abc
+3. subyte: 727e3adf
+6. xorcount= 18000000
+5. RCi: c6f038b6
+6. return_key: def01234565898bcc6f038b6727e3adf
+
+------------i 4 
+1. before_ LCS13: def01234565898bcc6f038b6727e3adf
+2. LCS13: 02468acb131798de0716ce4fc75bfbde
+3. subyte: c75bfb65
+6. xorcount= 20000000
+5. RCi: 2716ce4f
+6. return_key: 02468acb131798de2716ce4fc75bfb65
+
+------------i 5 
+1. before_ LCS13: 02468acb131798de2716ce4fc75bfb65
+2. LCS13: d1596262f31bc4e2d9c9f8eb7f6ca048
+3. subyte: 7f6ca014
+6. xorcount= 28000000
+5. RCi: f1c9f8eb
+6. return_key: d1596262f31bc4e2f1c9f8eb7f6ca014
+
+------------i 6 
+1. before_ LCS13: d1596262f31bc4e2f1c9f8eb7f6ca014
+2. LCS13: 2c4c5e63789c5e393f1d6fed94029a2b
+3. subyte: 94029a7d
+6. xorcount= 30000000
+5. RCi: 0f1d6fed
+6. return_key: 2c4c5e63789c5e390f1d6fed94029a7d
+
+------------i 7 
+1. before_ LCS13: 2c4c5e63789c5e390f1d6fed94029a7d
+2. LCS13: 8bcc6f138bc721e3adfdb280534fa589
+3. subyte: 534fa543
+6. xorcount= 38000000
+5. RCi: 95fdb280
+6. return_key: 8bcc6f138bc721e395fdb280534fa543
+
+------------i 8 
+1. before_ LCS13: 8bcc6f138bc721e395fdb280534fa543
+2. LCS13: 8de27178e43c72bfb6500a69f4a87179
+3. subyte: f4a87103
+6. xorcount= 40000000
+5. RCi: f6500a69
+6. return_key: 8de27178e43c72bff6500a69f4a87103
+
+------------i 9 
+1. before_ LCS13: 8de27178e43c72bff6500a69f4a87103
+2. LCS13: 4e2f1c878e57feca014d3e950e2071bc
+3. subyte: 0e2071df
+6. xorcount= 48000000
+5. RCi: 494d3e95
+6. return_key: 4e2f1c878e57feca494d3e950e2071df
+
+------------i 10 
+1. before_ LCS13: 4e2f1c878e57feca494d3e950e2071df
+2. LCS13: e390f1caffd94929a7d2a1c40e3be9c5
+3. subyte: 0e3be9fc
+6. xorcount= 50000000
+5. RCi: f7d2a1c4
+6. return_key: e390f1caffd94929f7d2a1c40e3be9fc
+
+------------i 11 
+1. before_ LCS13: e390f1caffd94929f7d2a1c40e3be9fc
+2. LCS13: 1e395ffb29253efa543881c77d3f9c72
+3. subyte: 7d3f9c07
+6. xorcount= 58000000
+5. RCi: 0c3881c7
+6. return_key: 1e395ffb29253efa0c3881c77d3f9c07
+
+------------i 12 
+1. before_ LCS13: 1e395ffb29253efa0c3881c77d3f9c07
+2. LCS13: 2bff6524a7df41871038efa7f380e3c7
+3. subyte: f380e3f0
+6. xorcount= 60000000
+5. RCi: 7038efa7
+6. return_key: 2bff6524a7df41877038efa7f380e3f0
+
+------------i 13 
+1. before_ LCS13: 2bff6524a7df41877038efa7f380e3f0
+2. LCS13: eca494fbe830ee071df4fe701c7e057f
+3. subyte: 1c7e050b
+6. xorcount= 68000000
+5. RCi: 75f4fe70
+6. return_key: eca494fbe830ee0775f4fe701c7e050b
+
+------------i 14 
+1. before_ LCS13: eca494fbe830ee0775f4fe701c7e050b
+2. LCS13: 929f7d061dc0eebe9fce038fc0a17d94
+3. subyte: c0a17d31
+6. xorcount= 70000000
+5. RCi: efce038f
+6. return_key: 929f7d061dc0eebeefce038fc0a17d31
+
+------------i 15 
+1. before_ LCS13: 929f7d061dc0eebeefce038fc0a17d31
+2. LCS13: efa0c3b81dd7ddf9c071f8142fa63253
+3. subyte: 2fa632ce
+6. xorcount= 78000000
+5. RCi: b871f814
+6. return_key: efa0c3b81dd7ddf9b871f8142fa632ce
+
+------------i 16 
+1. before_ LCS13: efa0c3b81dd7ddf9b871f8142fa632ce
+2. LCS13: 187703bafbbf370e3f0285f4c659ddf4
+3. subyte: c659ddb1
+6. xorcount= 80000000
+5. RCi: bf0285f4
+6. return_key: 187703bafbbf370ebf0285f4c659ddb1
+
+------------i 17 
+1. before_ LCS13: 187703bafbbf370ebf0285f4c659ddb1
+2. LCS13: e0775f77e6e1d7e050be98cb3bb6230e
+3. subyte: 3bb62325
+6. xorcount= 88000000
+5. RCi: d8be98cb
+6. return_key: e0775f77e6e1d7e0d8be98cb3bb62325
+
+------------i 18 
+1. before_ LCS13: e0775f77e6e1d7e0d8be98cb3bb62325
+2. LCS13: ebeefcdc3afc1b17d3196776c464bc0e
+3. subyte: c464bc25
+6. xorcount= 90000000
+5. RCi: 43196776
+6. return_key: ebeefcdc3afc1b1743196776c464bc25
+
+------------i 19 
+1. before_ LCS13: ebeefcdc3afc1b1743196776c464bc25
+2. LCS13: df9b875f8362e8632ceed88c9784bd7d
+3. subyte: 9784bd06
+6. xorcount= 98000000
+5. RCi: b4eed88c
+6. return_key: df9b875f8362e863b4eed88c9784bd06
+
+------------i 20 
+1. before_ LCS13: df9b875f8362e863b4eed88c9784bd06
+2. LCS13: 70ebf06c5d0c769ddb1192f097a0dbf3
+3. subyte: 97a0dbbe
+6. xorcount= a0000000
+5. RCi: 7b1192f0
+6. return_key: 70ebf06c5d0c769d7b1192f097a0dbbe
+
+------------i 21 
+1. before_ LCS13: 70ebf06c5d0c769d7b1192f097a0dbbe
+2. LCS13: 7e0d8ba18ed3af62325e12f41b77ce1d
+3. subyte: 1b77ce96
+6. xorcount= a8000000
+5. RCi: 9a5e12f4
+6. return_key: 7e0d8ba18ed3af629a5e12f41b77ce96
+
+------------i 22 
+1. before_ LCS13: 7e0d8ba18ed3af629a5e12f41b77ce96
+2. LCS13: b17431da75ec534bc25e836ef9d2cfc1
+3. subyte: f9d2cff9
+6. xorcount= b0000000
+5. RCi: 725e836e
+6. return_key: b17431da75ec534b725e836ef9d2cff9
+
+------------i 23 
+1. before_ LCS13: b17431da75ec534b725e836ef9d2cff9
+2. LCS13: 863b4ebd8a696e4bd06ddf3a59ff362e
+3. subyte: 59ff3675
+6. xorcount= b8000000
+5. RCi: 686ddf3a
+6. return_key: 863b4ebd8a696e4b686ddf3a59ff3675
+
+------------i 24 
+1. before_ LCS13: 863b4ebd8a696e4b686ddf3a59ff3675
+2. LCS13: 69d7b14d2dc96d0dbbe74b3fe6ceb0c7
+3. subyte: e6ceb0f0
+6. xorcount= c0000000
+5. RCi: 7be74b3f
+6. return_key: 69d7b14d2dc96d0d7be74b3fe6ceb0f0
+
+------------i 25 
+1. before_ LCS13: 69d7b14d2dc96d0d7be74b3fe6ceb0f0
+2. LCS13: f629a5b92da1af7ce967fcd9d61e0d3a
+3. subyte: d61e0de8
+6. xorcount= c8000000
+5. RCi: 2167fcd9
+6. return_key: f629a5b92da1af7c2167fcd9d61e0de8
+
+------------i 26 
+1. before_ LCS13: f629a5b92da1af7c2167fcd9d61e0de8
+2. LCS13: 34b725b435ef842cff9b3ac3c1bd1ec5
+3. subyte: c1bd1efc
+6. xorcount= d0000000
+5. RCi: 2f9b3ac3
+6. return_key: 34b725b435ef842c2f9b3ac3c1bd1efc
+
+------------i 27 
+1. before_ LCS13: 34b725b435ef842c2f9b3ac3c1bd1efc
+2. LCS13: e4b686bdf08585f367587837a3df8696
+3. subyte: a3df863a
+6. xorcount= d8000000
+5. RCi: bf587837
+6. return_key: e4b686bdf08585f3bf587837a3df863a
+
+------------i 28 
+1. before_ LCS13: e4b686bdf08585f3bf587837a3df863a
+2. LCS13: d0d7be10b0be77eb0f06f47bf0c75c96
+3. subyte: f0c75c3a
+6. xorcount= e0000000
+5. RCi: ef06f47b
+6. return_key: d0d7be10b0be77ebef06f47bf0c75c3a
+
+------------i 29 
+1. before_ LCS13: d0d7be10b0be77ebef06f47bf0c75c3a
+2. LCS13: f7c21617cefd7de0de8f7e18eb875a1a
+3. subyte: eb875a98
+6. xorcount= e8000000
+5. RCi: 368f7e18
+6. return_key: f7c21617cefd7de0368f7e18eb875a98
+
+------------i 30 
+1. before_ LCS13: f7c21617cefd7de0368f7e18eb875a98
+2. LCS13: 42c2f9dfafbc06d1efc31d70eb531ef8
+3. subyte: eb531eb4
+6. xorcount= f0000000
+5. RCi: 1fc31d70
+6. return_key: 42c2f9dfafbc06d11fc31d70eb531eb4
+
+------------i 0 
+plaintext : 0123456789abcdef
+	 F1| sbox : 297e1ca0
+	 F1| <<<7 : bf0e5014
+	 F1| <<<3 : 4bf0e501
+	 F1_out ^ lsb : 7d5578fa
+	 F2| sbox : 06cc04b8
+	 F2| >>>7 : 700d9809
+	 F2| >>>3 : 00d98097
+	 F2_out ^ msb_bits ^ rk : f85c9016 (rk: 89abcdef)
+pbox_msb: 900b51f9	pbox_lsb: 2fab5b7a
+swap: 2fab5b7a 900b51f9
+round_cipher: 2fab5b7a900b51f9
+
+------------i 1 
+plaintext : 2fab5b7a900b51f9
+	 F1| sbox : 7b8dcd08
+	 F1| <<<7 : c6e6843d
+	 F1| <<<3 : dc6e6843
+	 F1_out ^ lsb : 8a83bd87
+	 F2| sbox : 484ed640
+	 F2| >>>7 : 80909dac
+	 F2| >>>3 : 0909dac8
+	 F2_out ^ msb_bits ^ rk : df8ffc6f (rk: 79bde071)
+pbox_msb: dfb9babf	pbox_lsb: f4d9a825
+swap: f4d9a825 dfb9babf
+round_cipher: f4d9a825dfb9babf
+
+------------i 2 
+plaintext : f4d9a825dfb9babf
+	 F1| sbox : b163847c
+	 F1| <<<7 : b1c23e58
+	 F1| <<<3 : 8b1c23e5
+	 F1_out ^ lsb : e567a702
+	 F2| sbox : 5ca08027
+	 F2| >>>7 : 4eb94100
+	 F2| >>>3 : eb941004
+	 F2_out ^ msb_bits ^ rk : edfad4bd (rk: bc0e2d9c)
+pbox_msb: f93ac7f7	pbox_lsb: c0c58f5b
+swap: c0c58f5b f93ac7f7
+round_cipher: c0c58f5bf93ac7f7
+
+------------i 3 
+plaintext : c0c58f5bf93ac7f7
+	 F1| sbox : f2fc4bcd
+	 F1| <<<7 : 7e25e6f9
+	 F1| <<<3 : 97e25e6f
+	 F1_out ^ lsb : 10fd7f61
+	 F2| sbox : 92b60ba9
+	 F2| >>>7 : 53256c17
+	 F2| >>>3 : 3256c175
+	 F2_out ^ msb_bits ^ rk : 6405b1c8 (rk: c5b393f1)
+pbox_msb: a3c8091a	pbox_lsb: 4efc5ccc
+swap: 4efc5ccc a3c8091a
+round_cipher: 4efc5ccca3c8091a
+
+------------i 4 
+plaintext : 4efc5ccca3c8091a
+	 F1| sbox : 15bfcfff
+	 F1| <<<7 : dfe7ff8a
+	 F1| <<<3 : adfe7ff8
+	 F1_out ^ lsb : d1d18968
+	 F2| sbox : 696943a4
+	 F2| >>>7 : 48d2d287
+	 F2| >>>3 : 8d2d2874
+	 F2_out ^ msb_bits ^ rk : f97d9ce0 (rk: 727e3adf)
+pbox_msb: e6285ff9	pbox_lsb: 87605a55
+swap: 87605a55 e6285ff9
+round_cipher: 87605a55e6285ff9
+
+------------i 5 
+plaintext : 87605a55e6285ff9
+	 F1| sbox : 40a2c8cc
+	 F1| <<<7 : 51646620
+	 F1| <<<3 : 05164662
+	 F1_out ^ lsb : b25a7fbb
+	 F2| sbox : d7c80bdd
+	 F2| >>>7 : bbaf9017
+	 F2| >>>3 : baf9017b
+	 F2_out ^ msb_bits ^ rk : 416d305c (rk: c75bfb65)
+pbox_msb: 138a0ed8	pbox_lsb: 6dfff1c1
+swap: 6dfff1c1 138a0ed8
+round_cipher: 6dfff1c1138a0ed8
+
+------------i 6 
+plaintext : 6dfff1c1138a0ed8
+	 F1| sbox : a6bbb9f9
+	 F1| <<<7 : 5ddcfcd3
+	 F1| <<<3 : 35ddcfcd
+	 F1_out ^ lsb : 7b8b3dc6
+	 F2| sbox : 0d4de6fa
+	 F2| >>>7 : f41a9bcd
+	 F2| >>>3 : 41a9bcdf
+	 F2_out ^ msb_bits ^ rk : a72076c7 (rk: 7f6ca014)
+pbox_msb: 7a9d2703	pbox_lsb: 76c9bbb4
+swap: 76c9bbb4 7a9d2703
+round_cipher: 76c9bbb47a9d2703
+
+------------i 7 
+plaintext : 76c9bbb47a9d2703
+	 F1| sbox : 0af3ddd1
+	 F1| <<<7 : 79eee885
+	 F1| <<<3 : 579eee88
+	 F1_out ^ lsb : 54ed210e
+	 F2| sbox : c1567925
+	 F2| >>>7 : 4b82acf2
+	 F2| >>>3 : b82acf24
+	 F2_out ^ msb_bits ^ rk : 1163421f (rk: 94029a7d)
+pbox_msb: 19179e40	pbox_lsb: 11c11cde
+swap: 11c11cde 19179e40
+round_cipher: 11c11cde19179e40
+
+------------i 8 
+plaintext : 11c11cde19179e40
+	 F1| sbox : 99f99f65
+	 F1| <<<7 : fccfb2cc
+	 F1| <<<3 : cfccfb2c
+	 F1_out ^ lsb : 2a14d7a0
+	 F2| sbox : 78916082
+	 F2| >>>7 : 04f122c1
+	 F2| >>>3 : 4f122c10
+	 F2_out ^ msb_bits ^ rk : 096db74c (rk: 534fa543)
+pbox_msb: d3cc0ee8	pbox_lsb: e86c6128
+swap: e86c6128 d3cc0ee8
+round_cipher: e86c6128d3cc0ee8
+
+------------i 9 
+plaintext : e86c6128d3cc0ee8
+	 F1| sbox : 54afa974
+	 F1| <<<7 : 57d4ba2a
+	 F1| <<<3 : a57d4ba2
+	 F1_out ^ lsb : 2165ff60
+	 F2| sbox : 79acbba2
+	 F2| >>>7 : 44f35977
+	 F2| >>>3 : 4f359774
+	 F2_out ^ msb_bits ^ rk : 1702de28 (rk: f4a87103)
+pbox_msb: cd2cb202	pbox_lsb: ceec0f48
+swap: ceec0f48 cd2cb202
+round_cipher: ceec0f48cd2cb202
+
+------------i 10 
+plaintext : ceec0f48cd2cb202
+	 F1| sbox : f55f2b14
+	 F1| <<<7 : af958a7a
+	 F1| <<<3 : aaf958a7
+	 F1_out ^ lsb : c84060df
+	 F2| sbox : f412a26b
+	 F2| >>>7 : d7e82544
+	 F2| >>>3 : 7e82544d
+	 F2_out ^ msb_bits ^ rk : 69a60f9e (rk: 0e2071df)
+pbox_msb: 7547873c	pbox_lsb: 3b930071
+swap: 3b930071 7547873c
+round_cipher: 3b9300717547873c
+
+------------i 11 
+plaintext : 3b9300717547873c
+	 F1| sbox : ed3e2209
+	 F1| <<<7 : 9f1104f6
+	 F1| <<<3 : 69f1104f
+	 F1_out ^ lsb : 83a79385
+	 F2| sbox : 4e803e4c
+	 F2| >>>7 : 989d007c
+	 F2| >>>3 : 89d007c9
+	 F2_out ^ msb_bits ^ rk : 24e5ee38 (rk: 0e3be9fc)
+pbox_msb: cda60d4e	pbox_lsb: b05cae0d
+swap: b05cae0d cda60d4e
+round_cipher: b05cae0dcda60d4e
+
+------------i 12 
+plaintext : b05cae0dcda60d4e
+	 F1| sbox : d2cf8526
+	 F1| <<<7 : 67c29369
+	 F1| <<<3 : 967c2936
+	 F1_out ^ lsb : 3c18b711
+	 F2| sbox : ef94d099
+	 F2| >>>7 : 33df29a1
+	 F2| >>>3 : 3df29a13
+	 F2_out ^ msb_bits ^ rk : c34e81b8 (rk: 7d3f9c07)
+pbox_msb: a162a2d9	pbox_lsb: c0de51a2
+swap: c0de51a2 a162a2d9
+round_cipher: c0de51a2a162a2d9
+
+------------i 13 
+plaintext : c0de51a2a162a2d9
+	 F1| sbox : f265c987
+	 F1| <<<7 : 32e4c3f9
+	 F1| <<<3 : 932e4c3f
+	 F1_out ^ lsb : 00a82d1f
+	 F2| sbox : 2284769b
+	 F2| >>>7 : 364508ed
+	 F2| >>>3 : 64508ed3
+	 F2_out ^ msb_bits ^ rk : 614b346c (rk: f380e3f0)
+pbox_msb: 53a88bd0	pbox_lsb: 55d30484
+swap: 55d30484 53a88bd0
+round_cipher: 55d3048453a88bd0
+
+------------i 14 
+plaintext : 55d3048453a88bd0
+	 F1| sbox : cc6e2141
+	 F1| <<<7 : 3710a0e6
+	 F1| <<<3 : 63710a0e
+	 F1_out ^ lsb : 07c92138
+	 F2| sbox : 20f379e4
+	 F2| >>>7 : c841e6f3
+	 F2| >>>3 : 841e6f3c
+	 F2_out ^ msb_bits ^ rk : 05f28840 (rk: 1c7e050b)
+pbox_msb: 8600c646	pbox_lsb: 01e22ac6
+swap: 01e22ac6 8600c646
+round_cipher: 01e22ac68600c646
+
+------------i 15 
+plaintext : 01e22ac68600c646
+	 F1| sbox : 295778fa
+	 F1| <<<7 : abbc7d14
+	 F1| <<<3 : 4abbc7d1
+	 F1_out ^ lsb : 67077c83
+	 F2| sbox : a0200f4e
+	 F2| >>>7 : 9d40401e
+	 F2| >>>3 : d40401e9
+	 F2_out ^ msb_bits ^ rk : 88071600 (rk: c0a17d31)
+pbox_msb: 400c8829	pbox_lsb: 6c99ab1a
+swap: 6c99ab1a 400c8829
+round_cipher: 6c99ab1a400c8829
+
+------------i 16 
+plaintext : 6c99ab1a400c8829
+	 F1| sbox : af338d98
+	 F1| <<<7 : 99c6cc57
+	 F1| <<<3 : 799c6cc5
+	 F1_out ^ lsb : a05628bb
+	 F2| sbox : 82ca74dd
+	 F2| >>>7 : bb0594e9
+	 F2| >>>3 : b0594e9b
+	 F2_out ^ msb_bits ^ rk : 486343a6 (rk: 2fa632ce)
+pbox_msb: 38658c70	pbox_lsb: 25b3c149
+swap: 25b3c149 38658c70
+round_cipher: 25b3c14938658c70
+
+------------i 17 
+plaintext : 25b3c14938658c70
+	 F1| sbox : 7cdef913
+	 F1| <<<7 : 6f7c89be
+	 F1| <<<3 : e6f7c89b
+	 F1_out ^ lsb : b1eecd55
+	 F2| sbox : d955f6cc
+	 F2| >>>7 : 99b2abed
+	 F2| >>>3 : 9b2abed9
+	 F2_out ^ msb_bits ^ rk : e17209cc (rk: c659ddb1)
+pbox_msb: 3740c751	pbox_lsb: de5297cd
+swap: de5297cd 3740c751
+round_cipher: de5297cd3740c751
+
+------------i 18 
+plaintext : de5297cd3740c751
+	 F1| sbox : 65c730f6
+	 F1| <<<7 : e3987b32
+	 F1| <<<3 : 2e3987b3
+	 F1_out ^ lsb : fae13bd0
+	 F2| sbox : b859ed62
+	 F2| >>>7 : c570b3da
+	 F2| >>>3 : 570b3dac
+	 F2_out ^ msb_bits ^ rk : 779f3a9e (rk: 3bb62325)
+pbox_msb: 358ffb9e	pbox_lsb: 26ce3d75
+swap: 26ce3d75 358ffb9e
+round_cipher: 26ce3d75358ffb9e
+
+------------i 19 
+plaintext : 26ce3d75358ffb9e
+	 F1| sbox : 7af5e60c
+	 F1| <<<7 : 7af3063d
+	 F1| <<<3 : d7af3063
+	 F1_out ^ lsb : 98d3cdc0
+	 F2| sbox : 346ef6f2
+	 F2| >>>7 : e468dded
+	 F2| >>>3 : 468ddede
+	 F2_out ^ msb_bits ^ rk : 404f8263 (rk: c464bc25)
+pbox_msb: 823588d8	pbox_lsb: ee40d865
+swap: ee40d865 823588d8
+round_cipher: ee40d865823588d8
+
+------------i 20 
+plaintext : ee40d865823588d8
+	 F1| sbox : 551264ac
+	 F1| <<<7 : 8932562a
+	 F1| <<<3 : a8932562
+	 F1_out ^ lsb : a394fb90
+	 F2| sbox : 8e31bd32
+	 F2| >>>7 : 651c637a
+	 F2| >>>3 : 51c637a6
+	 F2_out ^ msb_bits ^ rk : 4d1e31bf (rk: 9784bd06)
+pbox_msb: 31fbc2ba	pbox_lsb: acce630d
+swap: acce630d 31fbc2ba
+round_cipher: acce630d31fbc2ba
+
+------------i 21 
+plaintext : acce630d31fbc2ba
+	 F1| sbox : 8ff5ae26
+	 F1| <<<7 : fad71347
+	 F1| <<<3 : 7fad7134
+	 F1_out ^ lsb : b481a0c9
+	 F2| sbox : d14982f3
+	 F2| >>>7 : e7a29305
+	 F2| >>>3 : 7a29305e
+	 F2_out ^ msb_bits ^ rk : a6e51be8 (rk: 97a0dbbe)
+pbox_msb: 276c2d4f	pbox_lsb: a3901907
+swap: a3901907 276c2d4f
+round_cipher: a3901907276c2d4f
+
+------------i 22 
+plaintext : a3901907276c2d4f
+	 F1| sbox : 8e329320
+	 F1| <<<7 : 19499047
+	 F1| <<<3 : 71949904
+	 F1_out ^ lsb : 4fb1240c
+	 F2| sbox : 1bd9712f
+	 F2| >>>7 : 5e37b2e2
+	 F2| >>>3 : e37b2e25
+	 F2_out ^ msb_bits ^ rk : 05ab4b56 (rk: 1b77ce96)
+pbox_msb: 1e478e86	pbox_lsb: 51806e36
+swap: 51806e36 1e478e86
+round_cipher: 51806e361e478e86
+
+------------i 23 
+plaintext : 51806e361e478e86
+	 F1| sbox : c942a5ea
+	 F1| <<<7 : a152f564
+	 F1| <<<3 : 4a152f56
+	 F1_out ^ lsb : f50054b4
+	 F2| sbox : bc22c1d1
+	 F2| >>>7 : a3784583
+	 F2| >>>3 : 3784583a
+	 F2_out ^ msb_bits ^ rk : 3caebc76 (rk: f9d2cff9)
+pbox_msb: d6ab95ae	pbox_lsb: 782a1313
+swap: 782a1313 d6ab95ae
+round_cipher: 782a1313d6ab95ae
+
+------------i 24 
+plaintext : 782a1313d6ab95ae
+	 F1| sbox : 04789e9e
+	 F1| <<<7 : 3c4f4f02
+	 F1| <<<3 : 23c4f4f0
+	 F1_out ^ lsb : c9202e5c
+	 F2| sbox : f37275cf
+	 F2| >>>7 : 9fe6e4eb
+	 F2| >>>3 : fe6e4eb9
+	 F2_out ^ msb_bits ^ rk : 405d8f34 (rk: 59ff3675)
+pbox_msb: d46648d8	pbox_lsb: 57860631
+swap: 57860631 d46648d8
+round_cipher: 57860631d46648d8
+
+------------i 25 
+plaintext : 57860631d46648d8
+	 F1| sbox : c04a2ae9
+	 F1| <<<7 : 251574e0
+	 F1| <<<3 : 0251574e
+	 F1_out ^ lsb : f3226b76
+	 F2| sbox : be77ad0a
+	 F2| >>>7 : 157cef5a
+	 F2| >>>3 : 57cef5a1
+	 F2_out ^ msb_bits ^ rk : f3faac3a (rk: e6ceb0f0)
+pbox_msb: c5a3f7d5	pbox_lsb: 1ee7b711
+swap: 1ee7b711 c5a3f7d5
+round_cipher: 1ee7b711c5a3f7d5
+
+------------i 26 
+plaintext : 1ee7b711c5a3f7d5
+	 F1| sbox : 9550d099
+	 F1| <<<7 : a8684cca
+	 F1| <<<3 : aa8684cc
+	 F1_out ^ lsb : c74d3fd3
+	 F2| sbox : f016eb6e
+	 F2| >>>7 : dde02dd6
+	 F2| >>>3 : de02dd6d
+	 F2_out ^ msb_bits ^ rk : cb1b4a42 (rk: d61e0de8)
+pbox_msb: 0e05eab1	pbox_lsb: 66df2adb
+swap: 66df2adb 0e05eab1
+round_cipher: 66df2adb0e05eab1
+
+------------i 27 
+plaintext : 66df2adb0e05eab1
+	 F1| sbox : aa6b786d
+	 F1| <<<7 : 35bc36d5
+	 F1| <<<3 : 535bc36d
+	 F1_out ^ lsb : 68e21f09
+	 F2| sbox : a4579b23
+	 F2| >>>7 : 4748af36
+	 F2| >>>3 : 748af364
+	 F2_out ^ msb_bits ^ rk : 94a06875 (rk: c1bd1efc)
+pbox_msb: 1eb21407	pbox_lsb: 455c8574
+swap: 455c8574 1eb21407
+round_cipher: 455c85741eb21407
+
+------------i 28 
+plaintext : 455c85741eb21407
+	 F1| sbox : 1ccf4c01
+	 F1| <<<7 : 67a6008e
+	 F1| <<<3 : e67a6008
+	 F1_out ^ lsb : 9f6e7481
+	 F2| sbox : 3ba50149
+	 F2| >>>7 : 92774a02
+	 F2| >>>3 : 2774a029
+	 F2_out ^ msb_bits ^ rk : 5380e965 (rk: a3df863a)
+pbox_msb: 9ef03214	pbox_lsb: 6898b6eb
+swap: 6898b6eb 9ef03214
+round_cipher: 6898b6eb9ef03214
+
+------------i 29 
+plaintext : 6898b6eb9ef03214
+	 F1| sbox : a434da5d
+	 F1| <<<7 : 1a6d2ed2
+	 F1| <<<3 : 21a6d2ed
+	 F1_out ^ lsb : a53bce2b
+	 F2| sbox : 8cedf57d
+	 F2| >>>7 : fb19dbea
+	 F2| >>>3 : b19dbeaf
+	 F2_out ^ msb_bits ^ rk : d2db8f94 (rk: f0c75c3a)
+pbox_msb: f446f8d5	pbox_lsb: cd35cf83
+swap: cd35cf83 f446f8d5
+round_cipher: cd35cf83f446f8d5
+
+------------i 30 
+plaintext : cd35cf83f446f8d5
+	 F1| sbox : f6ecfb4e
+	 F1| <<<7 : 767da77b
+	 F1| <<<3 : b767da77
+	 F1_out ^ lsb : 355c85d9
+	 F2| sbox : eccf4c63
+	 F2| >>>7 : c7d99e98
+	 F2| >>>3 : 7d99e98c
+	 F2_out ^ msb_bits ^ rk : 9cf2e20f (rk: eb875a98)
+pbox_msb: 9995d467	pbox_lsb: e35253ca
+swap: e35253ca 9995d467
+round_cipher: e35253ca9995d467
+
