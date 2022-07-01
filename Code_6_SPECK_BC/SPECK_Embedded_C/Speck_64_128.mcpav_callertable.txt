@@ -1,0 +1,24 @@
+main
+	Lcd_Init
+		Delay_5500us
+		Delay_1us
+	Lcd_Cmd
+		Delay_1us
+		Delay_5500us
+		Delay_50us
+	key_update
+		Key_plus_encryption_speck
+			rcs_8
+			lcs_3
+	speck_round
+		Key_plus_encryption_speck
+	LongIntToHex
+	Lcd_Out
+		Lcd_Cmd
+		Lcd_Chr_CP
+			Lcd_Cmd
+	IntToStr
+		WordToStr
+			Div_16x16_U
+	__CC2DW
+interrupt
