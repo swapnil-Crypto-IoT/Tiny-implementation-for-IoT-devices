@@ -1,0 +1,12 @@
+# Writing all output to: D:\Ph_D_ANU\my_phd_papers\paper_2\Atmega_coding\Code_with_simulation_setup\Code_2_ANU_BC\3_ANU_embedded_C\Embedded_Board_At32.log
+set pad_wire_necking on
+bus diagonal
+fanout 5
+route 50
+clean 2
+route 50 16
+clean 2
+filter 5
+recorner diagonal
+status_file
+

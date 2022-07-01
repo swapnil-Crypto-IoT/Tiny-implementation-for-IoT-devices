@@ -1,0 +1,298 @@
+LCS3 : 00000000
+subbyte_lcs3 : 22222222
+RCS8 : 00000000
+subbyte_rcs : 22222222
+Round Key : 0
+xor result : 00000000
+pbox_trails : 00000000
+msbyte_trails : 00000000
+Round_C : 0000000000000000
+--------
+00000000000000000000000000000022
+LCS3 : 00000000
+subbyte_lcs3 : 22222222
+RCS8 : 00000000
+subbyte_rcs : 22222222
+Round Key : 22
+xor result : 00000022
+pbox_trails : 00210000
+msbyte_trails : 00000000
+Round_C : 0021000000000000
+--------
+final round rp : 0021000000000000
+00000000000000000800000000044022
+LCS3 : 01080000
+subbyte_lcs3 : 29242222
+RCS8 : 00002100
+subbyte_rcs : 22227922
+Round Key : 44022
+xor result : 80000000b021b22
+pbox_trails : 046da220
+msbyte_trails : 00000c00
+Round_C : 046da22000000c00
+--------
+final round rp : 046da22000000c00
+00000000000001001000000088044022
+LCS3 : 236d1100
+subbyte_lcs3 : 7ea69922
+RCS8 : 20046da2
+subbyte_rcs : 7221a687
+Round Key : 88044022
+xor result : 1001000000084837387
+pbox_trails : 38dd8807
+msbyte_trails : 80a40cca
+Round_C : 38dd880780a40cca
+--------
+final round rp : 38dd880780a40cca
+00000000002002001800110088044022
+LCS3 : c6ec4039
+subbyte_lcs3 : fa5f12e3
+RCS8 : 0738dd88
+subbyte_rcs : 20e46644
+Round Key : 88044022
+xor result : 20020018001100d21b384f
+pbox_trails : 1799f891
+msbyte_trails : 941159ec
+Round_C : 1799f891941159ec
+--------
+final round rp : 1799f891941159ec
+00000004004003002220110088044022
+LCS3 : bccfc488
+subbyte_lcs3 : dffbf144
+RCS8 : 911799f8
+subbyte_rcs : 399033b4
+Round Key : 88044022
+xor result : 40040030022201100fa7edb3e
+pbox_trails : 9d6ff5f9
+msbyte_trails : ac9a7a86
+Round_C : 9d6ff5f9ac9a7a86
+--------
+final round rp : 9d6ff5f9ac9a7a86
+00008008006004442a20110088044022
+LCS3 : eb7fafcc
+subbyte_lcs3 : 5d0b8bff
+RCS8 : f99d6ff5
+subbyte_rcs : b336abbc
+Round Key : 88044022
+xor result : 8008006004442a201100caa31ae7
+pbox_trails : 363dac35
+msbyte_trails : ebfa9eeb
+Round_C : 363dac35ebfa9eeb
+--------
+final round rp : 363dac35ebfa9eeb
+1001000c008885443220110088044022
+LCS3 : b1ed61a9
+subbyte_lcs3 : d956a983
+RCS8 : 35363dac
+subbyte_rcs : eceae68f
+Round Key : 88044022
+xor result : 1001000c0088854432201100564291c5
+pbox_trails : b258b052
+msbyte_trails : d4b27d8a
+Round_C : b258b052d4b27d8a
+--------
+final round rp : b258b052d4b27d8a
+2001801110a886443a20110088044222
+LCS3 : 92c58295
+subbyte_lcs3 : 37fc473c
+RCS8 : 52b258b0
+subbyte_rcs : c7d7c4d2
+Round Key : 88044222
+xor result : 2001801110a886443a201100ac9dbc46
+pbox_trails : d68949af
+msbyte_trails : 828b71c1
+Round_C : d68949af828b71c1
+--------
+final round rp : d68949af828b71c1
+3002221510c887444220110088444422
+LCS3 : b44a4d7e
+subbyte_lcs3 : d1181605
+RCS8 : afd68949
+subbyte_rcs : 8b6a4313
+Round Key : 88444422
+xor result : 3002221510c887444220110050bd60f5
+pbox_trails : 3ab25c9c
+msbyte_trails : 3d713897
+Round_C : 3ab25c9c3d713897
+--------
+final round rp : 3ab25c9c3d713897
+4442a21910e888444a20110888844622
+LCS3 : d592e4e1
+subbyte_lcs3 : 6c375159
+RCS8 : 9c3ab25c
+subbyte_rcs : 3fe8d7cf
+Round Key : 88844622
+xor result : 4442a21910e888444a201108e62af823
+pbox_trails : 8cb9a593
+msbyte_trails : 7d0af524
+Round_C : 8cb9a5937d0af524
+--------
+final round rp : 8cb9a5937d0af524
+5443221d110889445221111088c44844
+LCS3 : 65cd2c9c
+subbyte_lcs3 : acf67f3f
+RCS8 : 938cb9a5
+subbyte_rcs : 3e4fd38c
+Round Key : 88c44844
+xor result : 5443221d1108894452211110677711d3
+pbox_trails : 225bef5a
+msbyte_trails : e0d34ca7
+Round_C : 225bef5ae0d34ca7
+--------
+final round rp : 225bef5ae0d34ca7
+6443a22111288a447a22111889088a44
+LCS3 : 12df7ad1
+subbyte_lcs3 : 976b0869
+RCS8 : 5a225bef
+subbyte_rcs : c877cd5b
+Round Key : 89088a44
+xor result : 6443a22111288a447a22111836c703d1
+pbox_trails : 2256b94e
+msbyte_trails : cfc7e9c0
+Round_C : 2256b94ecfc7e9c0
+--------
+final round rp : 2256b94ecfc7e9c0
+7444222511488f442223112111488c44
+LCS3 : 12b5ca71
+subbyte_lcs3 : 97dcf809
+RCS8 : 4e2256b9
+subbyte_rcs : 1577cad3
+Round Key : 11488c44
+xor result : 7444222511488f44222311215c24575e
+pbox_trails : 5b4f143a
+msbyte_trails : 97c9e148
+Round_C : 5b4f143a97c9e148
+--------
+final round rp : 5b4f143a97c9e148
+8444a22911e884440a24222911888e44
+LCS3 : da78a1d2
+subbyte_lcs3 : 68048967
+RCS8 : 3a5b4f14
+subbyte_rcs : e8cd1b91
+Round Key : 11888e44
+xor result : 8444a22911e884440a2422290688fdfa
+pbox_trails : efeb2086
+msbyte_trails : 412bbaf8
+Round_C : efeb2086412bbaf8
+--------
+final round rp : efeb2086412bbaf8
+9445223d10888144f445223111c89044
+LCS3 : 7f590437
+subbyte_lcs3 : 0bc321e0
+RCS8 : 86efeb20
+subbyte_rcs : 4a5b5d72
+Round Key : 11c89044
+xor result : 9445223d10888144f4452231117b562e
+pbox_trails : 592ddec0
+msbyte_trails : 3081aff7
+Round_C : 592ddec03081aff7
+--------
+final round rp : 592ddec03081aff7
+a447a21110289e88dc46223912089244
+LCS3 : c96ef602
+subbyte_lcs3 : f3a5ba27
+RCS8 : c0592dde
+subbyte_rcs : f2c37665
+Round Key : 12089244
+xor result : a447a21110289e88dc46223923eff1f1
+pbox_trails : aafaafcc
+msbyte_trails : ee0c1eb8
+Round_C : aafaafccee0c1eb8
+--------
+final round rp : aafaafccee0c1eb8
+f442220513d11b884447224112489444
+LCS3 : 57d57e65
+subbyte_lcs3 : c06c05ac
+RCS8 : ccaafaaf
+subbyte_rcs : ff88b88b
+Round Key : 12489444
+xor result : f442220513d11b8844472241c3a037db
+pbox_trails : 63df2615
+msbyte_trails : f7c4e5e5
+Round_C : 63df2615f7c4e5e5
+--------
+final round rp : 63df2615f7c4e5e5
+4440a27a237108886c48224912889e44
+LCS3 : 1ef930ab
+subbyte_lcs3 : 95b3e28d
+RCS8 : 1563df26
+subbyte_rcs : 9cae6b7a
+Round Key : 12889e44
+xor result : 4440a27a237108886c482249ec51f256
+pbox_trails : 9a8f4973
+msbyte_trails : 5096ebdc
+Round_C : 9a8f49735096ebdc
+--------
+final round rp : 9a8f49735096ebdc
+144f446e21110d899449225113c88844
+LCS3 : d47a4b9c
+subbyte_lcs3 : 61081d3f
+RCS8 : 739a8f49
+subbyte_rcs : 0e384b13
+Round Key : 13c88844
+xor result : 144f446e21110d89944922512c6e35b4
+pbox_trails : 70ea85ea
+msbyte_trails : 0e73b8ad
+Round_C : 70ea85ea0e73b8ad
+--------
+final round rp : 70ea85ea0e73b8ad
+e88dc42221b13289bc4a227911088243
+LCS3 : 87542f53
+subbyte_lcs3 : 40c17bce
+RCS8 : ea70ea85
+subbyte_rcs : 5802584c
+Round Key : 11088243
+xor result : e88dc42221b13289bc4a227907b8196c
+pbox_trails : 17686686
+msbyte_trails : e36195d4
+Round_C : 17686686e36195d4
+--------
+final round rp : 17686686e36195d4
+b884443626513789e44f222110487d99
+LCS3 : bb433430
+subbyte_lcs3 : dd1ee1e2
+RCS8 : 86176866
+subbyte_rcs : 4a90a4aa
+Round Key : 10487d99
+xor result : b884443626513789e44f222164a7ad05
+pbox_trails : d4d08d1e
+msbyte_trails : 788536c2
+Round_C : d4d08d1e788536c2
+--------
+final round rp : d4d08d1e788536c2
+8886c4ca26f13c894c4422090fb33792
+LCS3 : a68468f6
+subbyte_lcs3 : 8a41a4ba
+RCS8 : 1ed4d08d
+subbyte_rcs : 95616246
+Round Key : fb33792
+xor result : 8886c4ca26f13c894c4422096816c7ac
+pbox_trails : f964c138
+msbyte_trails : d5435057
+Round_C : f964c138d5435057
+--------
+final round rp : f964c138d5435057
+d89944de27912988344121f666f25192
+LCS3 : cb2609c7
+subbyte_lcs3 : fd7a23f0
+RCS8 : 38f964c1
+subbyte_rcs : e4b3a1f9
+Round Key : 66f25192
+xor result : d89944de27912988344121f6aa7883cc
+pbox_trails : b34465e1
+msbyte_trails : 89621779
+Round_C : b34465e189621779
+--------
+final round rp : b34465e189621779
+289bc4f2253106889c3eccde4a325b9e
+LCS3 : 9a232f0d
+subbyte_lcs3 : 387e7b26
+RCS8 : e1b34465
+subbyte_rcs : 59de11ac
+Round Key : 4a325b9e
+xor result : 289bc4f2253106889c3eccdea2f0266d
+pbox_trails : 53b46545
+msbyte_trails : 6af03349
+Round_C : 53b465456af03349
+--------
+final round rp : 53b465456af03349
