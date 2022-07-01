@@ -1,0 +1,28 @@
+main
+	Lcd_Init
+		Delay_5500us
+		Delay_1us
+	Lcd_Cmd
+		Delay_1us
+		Delay_5500us
+		Delay_50us
+	key_schedule_1
+		__CC2DW
+	nux_round
+		timer_init
+		rcs_3
+		s_box
+		lcs_8
+		p_box
+		timer_stop
+		__CC2DW
+	LongIntToHex
+	Lcd_Out
+		Lcd_Cmd
+		Lcd_Chr_CP
+			Lcd_Cmd
+	IntToStr
+		WordToStr
+			Div_16x16_U
+	__CC2DW
+interrupt
