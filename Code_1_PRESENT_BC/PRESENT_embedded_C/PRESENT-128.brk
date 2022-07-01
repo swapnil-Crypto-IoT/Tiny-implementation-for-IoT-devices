@@ -1,0 +1,20 @@
+<BREAKS>
+  <BP>
+    <UnitName>PRESENT-128.c</UnitName>
+    <Line>198</Line>
+    <Enabled>True</Enabled>
+    <Type>0</Type>
+  </BP>
+  <BP>
+    <UnitName>PRESENT-128.c</UnitName>
+    <Line>162</Line>
+    <Enabled>True</Enabled>
+    <Type>0</Type>
+  </BP>
+  <BP>
+    <UnitName>PRESENT-128.c</UnitName>
+    <Line>164</Line>
+    <Enabled>True</Enabled>
+    <Type>0</Type>
+  </BP>
+</BREAKS>

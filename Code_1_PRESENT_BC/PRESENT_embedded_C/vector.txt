@@ -1,0 +1,64 @@
+
+ the value of subkey at round 00 is 0000000000000000(H) 0000000000000000(L)
+
+ the value of subkey at round 01 is cc00000000000000(H) 4000000000000000(L)
+
+ the value of subkey at round 02 is c300000000000000(H) 9980000000000000(L)
+
+ the value of subkey at round 03 is 5b30000000000000(H) d860000000000000(L)
+
+ the value of subkey at round 04 is 580c000000000001(H) 0b66000000000000(L)
+
+ the value of subkey at round 05 is 656cc00000000001(H) 4b01800000000000(L)
+
+ the value of subkey at round 06 is 6e60300000000001(H) 8cad980000000000(L)
+
+ the value of subkey at round 07 is b595b30000000001(H) cdcc060000000000(L)
+
+ the value of subkey at round 08 is beb980c000000002(H) 16b2b66000000000(L)
+
+ the value of subkey at round 09 is 96d656cc00000002(H) 57d7301800000000(L)
+
+ the value of subkey at round 10 is 9ffae60300000002(H) 92dacad980000000(L)
+
+ the value of subkey at round 11 is 065b595b30000002(H) d3ff5cc060000000(L)
+
+ the value of subkey at round 12 is 0f7feb980c000003(H) 00cb6b2b66000000(L)
+
+ the value of subkey at round 13 is ac196d656cc00003(H) 41effd7301800000(L)
+
+ the value of subkey at round 14 is a33dffae60300003(H) 95832dacad980000(L)
+
+ the value of subkey at round 15 is d6b065b595b30003(H) d467bff5cc060000(L)
+
+ the value of subkey at round 16 is df8cf7feb980c004(H) 1ad60cb6b2b66000(L)
+
+ the value of subkey at round 17 is 3b5ac196d656cc04(H) 5bf19effd7301800(L)
+
+ the value of subkey at round 18 is 387e33dffae60304(H) 876b5832dacad980(L)
+
+ the value of subkey at round 19 is eced6b065b595b34(H) c70fc67bff5cc060(L)
+
+ the value of subkey at round 20 is e3e1f8cf7feb9809(H) 1d9dad60cb6b2b66(L)
+
+ the value of subkey at round 21 is 6bb3b5ac196d6569(H) 9c7c3f19effd7301(L)
+
+ the value of subkey at round 22 is bb8f87e33dffae65(H) ad7676b5832dacad(L)
+
+ the value of subkey at round 23 is 80aeced6b065b590(H) 7771f0fc67bff5cc(L)
+
+ the value of subkey at round 24 is c1ee3e1f8cf7febf(H) 9015d9dad60cb6b2(L)
+
+ the value of subkey at round 25 is 2602bb3b5ac196d0(H) 183dc7c3f19effd7(L)
+
+ the value of subkey at round 26 is cb07b8f87e33dffc(H) 64c057676b5832da(L)
+
+ the value of subkey at round 27 is 34980aeced6b065d(H) 9960f71f0fc67bff(L)
+
+ the value of subkey at round 28 is 8b2c1ee3e1f8cf78(H) e693015d9dad60cb(L)
+
+ the value of subkey at round 29 is 54d2602bb3b5ac1e(H) 316583dc7c3f19ef(L)
+
+ the value of subkey at round 30 is 4a2cb07b8f87e33a(H) 6a9a4c057676b583(L)
+
+ the value of subkey at round 31 is 97534980aeced6b7(H) a945960f71f0fc67(L)

@@ -1,0 +1,226 @@
+
+ the value of subkey at round 00 is 0000000000000000(H) 0000000000000000(L)
+
+ the value of subkey at round 01 is cc00000000000000(H) 4000000000000000(L)
+
+ the value of subkey at round 02 is c300000000000000(H) 9980000000000000(L)
+
+ the value of subkey at round 03 is 5b30000000000000(H) d860000000000000(L)
+
+ the value of subkey at round 04 is 580c000000000001(H) 0b66000000000000(L)
+
+ the value of subkey at round 05 is 656cc00000000001(H) 4b01800000000000(L)
+
+ the value of subkey at round 06 is 6e60300000000001(H) 8cad980000000000(L)
+
+ the value of subkey at round 07 is b595b30000000001(H) cdcc060000000000(L)
+
+ the value of subkey at round 08 is beb980c000000002(H) 16b2b66000000000(L)
+
+ the value of subkey at round 09 is 96d656cc00000002(H) 57d7301800000000(L)
+
+ the value of subkey at round 10 is 9ffae60300000002(H) 92dacad980000000(L)
+
+ the value of subkey at round 11 is 065b595b30000002(H) d3ff5cc060000000(L)
+
+ the value of subkey at round 12 is 0f7feb980c000003(H) 00cb6b2b66000000(L)
+
+ the value of subkey at round 13 is ac196d656cc00003(H) 41effd7301800000(L)
+
+ the value of subkey at round 14 is a33dffae60300003(H) 95832dacad980000(L)
+
+ the value of subkey at round 15 is d6b065b595b30003(H) d467bff5cc060000(L)
+
+ the value of subkey at round 16 is df8cf7feb980c004(H) 1ad60cb6b2b66000(L)
+
+ the value of subkey at round 17 is 3b5ac196d656cc04(H) 5bf19effd7301800(L)
+
+ the value of subkey at round 18 is 387e33dffae60304(H) 876b5832dacad980(L)
+
+ the value of subkey at round 19 is eced6b065b595b34(H) c70fc67bff5cc060(L)
+
+ the value of subkey at round 20 is e3e1f8cf7feb9809(H) 1d9dad60cb6b2b66(L)
+
+ the value of subkey at round 21 is 6bb3b5ac196d6569(H) 9c7c3f19effd7301(L)
+
+ the value of subkey at round 22 is bb8f87e33dffae65(H) ad7676b5832dacad(L)
+
+ the value of subkey at round 23 is 80aeced6b065b590(H) 7771f0fc67bff5cc(L)
+
+ the value of subkey at round 24 is c1ee3e1f8cf7febf(H) 9015d9dad60cb6b2(L)
+
+ the value of subkey at round 25 is 2602bb3b5ac196d0(H) 183dc7c3f19effd7(L)
+
+ the value of subkey at round 26 is cb07b8f87e33dffc(H) 64c057676b5832da(L)
+
+ the value of subkey at round 27 is 34980aeced6b065d(H) 9960f71f0fc67bff(L)
+
+ the value of subkey at round 28 is 8b2c1ee3e1f8cf78(H) e693015d9dad60cb(L)
+
+ the value of subkey at round 29 is 54d2602bb3b5ac1e(H) 316583dc7c3f19ef(L)
+
+ the value of subkey at round 30 is 4a2cb07b8f87e33a(H) 6a9a4c057676b583(L)
+
+ the value of subkey at round 31 is 97534980aeced6b7(H) a945960f71f0fc67(L)
+the round pt is 0000000000000000 -- 0 
+the round keyxor is 0000000000000000 -- 0 
+the round sbox is cccccccccccccccc -- 0 
+the round ciphertext (player) is ffffffff00000000 -- 0 
+
+the round pt is ffffffff00000000 -- 1 
+the round keyxor is 33ffffff00000000 -- 1 
+the round sbox is bb222222cccccccc -- 1 
+the round ciphertext (player) is c0ff00ffff00c000 -- 1 
+
+the round pt is c0ff00ffff00c000 -- 2 
+the round keyxor is 03ff00ffff00c000 -- 2 
+the round sbox is cb22cc2222cc4ccc -- 2 
+the round ciphertext (player) is cc378c3f73c04000 -- 2 
+
+the round pt is cc378c3f73c04000 -- 3 
+the round keyxor is 97078c3f73c04000 -- 3 
+the round sbox is edcd34b2db4c9ccc -- 3 
+the round ciphertext (player) is f2dff4b78b405ac8 -- 3 
+
+the round pt is f2dff4b78b405ac8 -- 4 
+the round keyxor is aad3f4b78b405ac9 -- 4 
+the round sbox is ff7b298d389c0f4e -- 4 
+the round ciphertext (player) is d775e117f885f5a4 -- 4 
+
+the round pt is d775e117f885f5a4 -- 5 
+the round keyxor is b2192117f885f5a5 -- 5 
+the round sbox is 865e655d233020f0 -- 5 
+the round ciphertext (player) is 91027f0258ea2762 -- 5 
+
+the round pt is 91027f0258ea2762 -- 6 
+the round keyxor is ff624f0258ea2763 -- 6 
+the round sbox is 22a692c6031f6dab -- 6 
+the round ciphertext (player) is 2a17131cf55b0875 -- 6 
+
+the round pt is 2a17131cf55b0875 -- 7 
+the round keyxor is 9f82a01cf55b0874 -- 7 
+the round sbox is e236fc542008c3d9 -- 7 
+the round ciphertext (player) is 8c1b9f0af8842a07 -- 7 
+
+the round pt is 8c1b9f0af8842a07 -- 8 
+the round keyxor is 32a21fcaf8842a05 -- 8 
+the round sbox is b6f6524f23396fc0 -- 8 
+the round ciphertext (player) is a1167b0ef5eca974 -- 8 
+
+the round pt is a1167b0ef5eca974 -- 9 
+the round keyxor is 37c02dc2f5eca976 -- 9 
+the round sbox is bd4c67462014feda -- 9 
+the round ciphertext (player) is d00f7f1e8d8dc42a -- 9 
+
+the round pt is d00f7f1e8d8dc42a -- 10 
+the round keyxor is 4ff5991d8d8dc428 -- 10 
+the round sbox is 9220ee5737374963 -- 10 
+the round ciphertext (player) is 8c040f5a6df383f5 -- 10 
+
+the round pt is 8c040f5a6df383f5 -- 11 
+the round keyxor is 8a5f56015df383f7 -- 11 
+the round sbox is 3f020ac5072b3b2d -- 11 
+the round ciphertext (player) is 46154341d47ec15d -- 11 
+
+the round pt is 46154341d47ec15d -- 12 
+the round keyxor is 496aa8d9d87ec15e -- 12 
+the round sbox is 9eaff37e73d14501 -- 12 
+the round ciphertext (player) is f9205bac7fc09ef5 -- 12 
+
+the round pt is f9205bac7fc09ef5 -- 13 
+the round keyxor is 553936c913009ef6 -- 13 
+the round sbox is 00beba4e5bcce12a -- 13 
+the round ciphertext (player) is 3d7913b83d4b28c4 -- 13 
+
+the round pt is 3d7913b83d4b28c4 -- 14 
+the round keyxor is 9e44ec165d7b28c7 -- 14 
+the round sbox is e199145a07d8634d -- 14 
+the round ciphertext (player) is b131866b814c7a65 -- 14 
+
+the round pt is b131866b814c7a65 -- 15 
+the round keyxor is 6781e3de14ff7a66 -- 15 
+the round sbox is ad351b715922dfaa -- 15 
+the round ciphertext (player) is c44f528ca6377fcc -- 15 
+
+the round pt is c44f528ca6377fcc -- 16 
+the round keyxor is 1bc3a5721fb7bfc8 -- 16 
+the round sbox is 584bf0d6528d8243 -- 16 
+the round ciphertext (player) is 5a38ab9219459a91 -- 16 
+
+the round pt is 5a38ab9219459a91 -- 17 
+the round keyxor is 61626a04cf135695 -- 17 
+the round sbox is a5a6afc9425b0ae0 -- 17 
+the round ciphertext (player) is af1656a2bc564530 -- 17 
+
+the round pt is af1656a2bc564530 -- 18 
+the round keyxor is 9768657d46b04634 -- 18 
+the round sbox is eda3a0d79a8c9ab9 -- 18 
+the round ciphertext (player) is eaffc310b946538b -- 18 
+
+the round pt is eaffc310b946538b -- 19 
+the round keyxor is 0612a816e21f08bf -- 19 
+the round sbox is ca56f35a1652c382 -- 19 
+the round ciphertext (player) is c90aba685d552ea4 -- 19 
+
+the round pt is c90aba685d552ea4 -- 20 
+the round keyxor is 2aeb42a722beb6ad -- 20 
+the round sbox is 6f1896fd66818af7 -- 20 
+the round ciphertext (player) is 5b2ec7c3c6c76b13 -- 20 
+
+the round pt is 5b2ec7c3c6c76b13 -- 21 
+the round keyxor is 309d726fdfaa0e7a -- 21 
+the round sbox is bce7d6a272ffc1df -- 21 
+the round ciphertext (player) is ea3b7cbbb7f198b7 -- 21 
+
+the round pt is ea3b7cbbb7f198b7 -- 22 
+the round keyxor is 51b4fb588a0e36d2 -- 22 
+the round sbox is 058928033fc1ba76 -- 22 
+the round ciphertext (player) is 346c406309cf51da -- 22 
+
+the round pt is 346c406309cf51da -- 23 
+the round keyxor is b4c28eb5b9aae44a -- 23 
+the round sbox is 894631808eff199f -- 23 
+the round ciphertext (player) is c2f7307118714c3f -- 23 
+
+the round pt is c2f7307118714c3f -- 24 
+the round keyxor is 03190e6e9486b280 -- 24 
+the round sbox is cb5ec1a1e93a863c -- 24 
+the round ciphertext (player) is dad9b88552b66562 -- 24 
+
+the round pt is dad9b88552b66562 -- 25 
+the round keyxor is fcdb03be0877f3b2 -- 25 
+the round sbox is 2478cb81c3dd2b86 -- 25 
+the round ciphertext (player) is 1eb668b1a44d2574 -- 25 
+
+the round pt is 1eb668b1a44d2574 -- 26 
+the round keyxor is d5b1d049da7efa88 -- 26 
+the round sbox is 70857c9e7fd12f33 -- 26 
+the round ciphertext (player) is 27649de489cf9af7 -- 26 
+
+the round pt is 27649de489cf9af7 -- 27 
+the round keyxor is 13fc970864a49caa -- 27 
+the round sbox is 5b24edc3a9f9e4ff -- 27 
+the round ciphertext (player) is 4efb9e2f69abc573 -- 27 
+
+the round pt is 4efb9e2f69abc573 -- 28 
+the round keyxor is c5d780cc88530a0b -- 28 
+the round sbox is 407d3c44330bcfc8 -- 28 
+the round ciphertext (player) is 141fb70e28d438d4 -- 28 
+
+the round pt is 141fb70e28d438d4 -- 29 
+the round keyxor is 40cdd7259b6194ca -- 29 
+the round sbox is 9c477d60e8a5e94f -- 29 
+the round ciphertext (player) is c4ed7e9b1aa99c15 -- 29 
+
+the round pt is c4ed7e9b1aa99c15 -- 30 
+the round keyxor is 8ec1cee0952e7f2f -- 30 
+the round sbox is 3145411ce061d262 -- 30 
+the round ciphertext (player) is 018839aa80a7d618 -- 30 
+
+the round pt is 018839aa80a7d618 -- 31 
+the round keyxor is 96db702a2e6900af -- 31 
+the round sbox is ea78dc6f61aeccf2 -- 31 
+the round ciphertext (player) is dd3eaf9ee3b32942 -- 31 
+
+the round ciphertext is 4a6de61e4d7dfff5 -- 32 
+

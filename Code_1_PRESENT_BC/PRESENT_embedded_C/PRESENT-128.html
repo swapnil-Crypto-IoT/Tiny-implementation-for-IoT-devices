@@ -1,0 +1,222 @@
+Version:0.9
+StartHTML:0000000105
+EndHTML:0000038276
+StartFragment:0000001502
+EndFragment:0000038260
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mikroIDE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+body { font-family: Courier New; font-size: 14pt; }
+.cpp1-activecomment { color: #0078D7; font-style: italic; text-decoration: underline; }
+.cpp1-assembler { color: #800080; font-weight: bold; }
+.cpp1-binary { color: #000000; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #008000; font-style: italic; }
+.cpp1-float { color: #800000; }
+.cpp1-hexadecimal { color: #008000; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #FF0000; }
+.cpp1-imagelink { color: #800080; font-style: italic; text-decoration: underline; }
+.cpp1-number { color: #008000; }
+.cpp1-octal { color: #FF00FF; }
+.cpp1-preprocessor { color: #8000FF; font-style: italic; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { }
+.cpp1-string { color: #800080; }
+.cpp1-symbol { color: #000000; }
+.cpp1-weblink { color: #0078D7; font-style: italic; text-decoration: underline; }
+-->
+</style>
+</head>
+<body>
+<!--StartFragment--><pre><code><span class="cpp1-comment">/*
+
+This&nbsp;code&nbsp;domonstrates&nbsp;the&nbsp;Lightweight&nbsp;block&nbsp;cipher&nbsp;PRESENT&nbsp;with&nbsp;128&nbsp;bit&nbsp;key&nbsp;scheduling
+
+Test&nbsp;vector&nbsp;:&nbsp;Plaintext&nbsp;=&nbsp;0x00000000&nbsp;0x00000000&nbsp;and&nbsp;key&nbsp;=&nbsp;0x00000000&nbsp;0x00000000&nbsp;0x00000000&nbsp;0x00000000
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ciphertext&nbsp;=&nbsp;0x96db702a&nbsp;0x2e6900af
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Programing&nbsp;Author:&nbsp;Swapnil&nbsp;Ashok&nbsp;Sutar
+Date&nbsp;:&nbsp;27/03/2019
+
+*/
+</span><span class="cpp1-preprocessor">#include&lt;stdio.h&gt;
+</span><span class="cpp1-comment">//&nbsp;LCD&nbsp;module&nbsp;connections
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_RS&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;PORTC2_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_EN&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;PORTC3_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D4&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;PORTC4_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D5&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;PORTC5_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D6&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;PORTC6_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D7&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;PORTC7_bit;
+
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_RS_Direction&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;DDC2_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_EN_Direction&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;DDC3_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D4_Direction&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;DDC4_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D5_Direction&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;DDC5_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D6_Direction&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;DDC6_bit;
+</span><span class="cpp1-reservedword">sbit</span><span class="cpp1-space">&nbsp;LCD_D7_Direction&nbsp;</span><span class="cpp1-reservedword">at</span><span class="cpp1-space">&nbsp;DDC7_bit;
+</span><span class="cpp1-comment">//&nbsp;End&nbsp;LCD&nbsp;module&nbsp;connections
+//******************************************global&nbsp;variables**********************************************************
+</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;&nbsp;temp1,&nbsp;temp2;
+</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;sbox[</span><span class="cpp1-number">16</span><span class="cpp1-symbol">]&nbsp;=&nbsp;{</span><span class="cpp1-hexadecimal">0xc</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x5</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x6</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0xb</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x9</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x0</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0xa</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0xd</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x3</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0xe</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0xf</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x8</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x4</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x7</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x1</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x2</span><span class="cpp1-symbol">};
+</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;player[</span><span class="cpp1-number">64</span><span class="cpp1-symbol">]&nbsp;=&nbsp;{</span><span class="cpp1-number">0</span><span class="cpp1-symbol">,</span><span class="cpp1-number">16</span><span class="cpp1-symbol">,</span><span class="cpp1-number">32</span><span class="cpp1-symbol">,</span><span class="cpp1-number">48</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-number">17</span><span class="cpp1-symbol">,</span><span class="cpp1-number">33</span><span class="cpp1-symbol">,</span><span class="cpp1-number">49</span><span class="cpp1-symbol">,</span><span class="cpp1-number">2</span><span class="cpp1-symbol">,</span><span class="cpp1-number">18</span><span class="cpp1-symbol">,</span><span class="cpp1-number">34</span><span class="cpp1-symbol">,</span><span class="cpp1-number">50</span><span class="cpp1-symbol">,</span><span class="cpp1-number">3</span><span class="cpp1-symbol">,</span><span class="cpp1-number">19</span><span class="cpp1-symbol">,</span><span class="cpp1-number">35</span><span class="cpp1-symbol">,</span><span class="cpp1-number">51</span><span class="cpp1-symbol">,</span><span class="cpp1-number">4</span><span class="cpp1-symbol">,</span><span class="cpp1-number">20</span><span class="cpp1-symbol">,</span><span class="cpp1-number">36</span><span class="cpp1-symbol">,</span><span class="cpp1-number">52</span><span class="cpp1-symbol">,</span><span class="cpp1-number">5</span><span class="cpp1-symbol">,</span><span class="cpp1-number">21</span><span class="cpp1-symbol">,</span><span class="cpp1-number">37</span><span class="cpp1-symbol">,</span><span class="cpp1-number">53</span><span class="cpp1-symbol">,</span><span class="cpp1-number">6</span><span class="cpp1-symbol">,</span><span class="cpp1-number">22</span><span class="cpp1-symbol">,</span><span class="cpp1-number">38</span><span class="cpp1-symbol">,</span><span class="cpp1-number">54</span><span class="cpp1-symbol">,</span><span class="cpp1-number">7</span><span class="cpp1-symbol">,</span><span class="cpp1-number">23</span><span class="cpp1-symbol">,</span><span class="cpp1-number">39</span><span class="cpp1-symbol">,</span><span class="cpp1-number">55</span><span class="cpp1-symbol">,</span><span class="cpp1-number">8</span><span class="cpp1-symbol">,
+</span><span class="cpp1-number">24</span><span class="cpp1-symbol">,</span><span class="cpp1-number">40</span><span class="cpp1-symbol">,</span><span class="cpp1-number">56</span><span class="cpp1-symbol">,</span><span class="cpp1-number">9</span><span class="cpp1-symbol">,</span><span class="cpp1-number">25</span><span class="cpp1-symbol">,</span><span class="cpp1-number">41</span><span class="cpp1-symbol">,</span><span class="cpp1-number">57</span><span class="cpp1-symbol">,</span><span class="cpp1-number">10</span><span class="cpp1-symbol">,</span><span class="cpp1-number">26</span><span class="cpp1-symbol">,</span><span class="cpp1-number">42</span><span class="cpp1-symbol">,</span><span class="cpp1-number">58</span><span class="cpp1-symbol">,</span><span class="cpp1-number">11</span><span class="cpp1-symbol">,</span><span class="cpp1-number">27</span><span class="cpp1-symbol">,</span><span class="cpp1-number">43</span><span class="cpp1-symbol">,</span><span class="cpp1-number">59</span><span class="cpp1-symbol">,</span><span class="cpp1-number">12</span><span class="cpp1-symbol">,</span><span class="cpp1-number">28</span><span class="cpp1-symbol">,</span><span class="cpp1-number">44</span><span class="cpp1-symbol">,</span><span class="cpp1-number">60</span><span class="cpp1-symbol">,</span><span class="cpp1-number">13</span><span class="cpp1-symbol">,</span><span class="cpp1-number">29</span><span class="cpp1-symbol">,</span><span class="cpp1-number">45</span><span class="cpp1-symbol">,</span><span class="cpp1-number">61</span><span class="cpp1-symbol">,</span><span class="cpp1-number">14</span><span class="cpp1-symbol">,</span><span class="cpp1-number">30</span><span class="cpp1-symbol">,</span><span class="cpp1-number">46</span><span class="cpp1-symbol">,</span><span class="cpp1-number">62</span><span class="cpp1-symbol">,</span><span class="cpp1-number">15</span><span class="cpp1-symbol">,</span><span class="cpp1-number">31</span><span class="cpp1-symbol">,</span><span class="cpp1-number">47</span><span class="cpp1-symbol">,</span><span class="cpp1-number">63</span><span class="cpp1-symbol">};
+
+</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;i,j;
+</span><span class="cpp1-reservedword">char</span><span class="cpp1-space">&nbsp;ch[</span><span class="cpp1-number">5</span><span class="cpp1-symbol">];
+
+</span><span class="cpp1-comment">//******************************************slayer**********************************************************
+</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;s_box(</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;temp1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;sbox&nbsp;done!
+</span><span class="cpp1-symbol">{
+&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;a[</span><span class="cpp1-number">8</span><span class="cpp1-symbol">];
+&nbsp;temp2=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">32</span><span class="cpp1-symbol">;i=i+</span><span class="cpp1-number">4</span><span class="cpp1-symbol">)
+&nbsp;{
+&nbsp;&nbsp;&nbsp;a[(i*</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)/</span><span class="cpp1-number">4</span><span class="cpp1-symbol">]=&nbsp;sbox[((temp1&gt;&gt;(i))&amp;</span><span class="cpp1-hexadecimal">0xf</span><span class="cpp1-symbol">)];
+&nbsp;&nbsp;&nbsp;temp2&nbsp;|=&nbsp;a[(i*</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)/</span><span class="cpp1-number">4</span><span class="cpp1-symbol">]&nbsp;&lt;&lt;&nbsp;i;
+&nbsp;}
+&nbsp;</span><span class="cpp1-reservedword">return</span><span class="cpp1-symbol">(temp2);
+}
+
+</span><span class="cpp1-comment">//******************************************player**********************************************************
+</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;p_layer(</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;temp1,&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;temp2,&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;result[])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;permutation&nbsp;done!
+</span><span class="cpp1-symbol">{
+&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;pbox[</span><span class="cpp1-number">64</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">0</span><span class="cpp1-symbol">};
+&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;pbox_out[</span><span class="cpp1-number">64</span><span class="cpp1-symbol">]={</span><span class="cpp1-number">0</span><span class="cpp1-symbol">};
+
+&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">32</span><span class="cpp1-symbol">;i++)
+&nbsp;{
+&nbsp;&nbsp;pbox[</span><span class="cpp1-number">31</span><span class="cpp1-symbol">-i]=(temp1&gt;&gt;i)&amp;</span><span class="cpp1-hexadecimal">0x1</span><span class="cpp1-symbol">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//corrosponds&nbsp;to&nbsp;pt[0]&nbsp;msb
+</span><span class="cpp1-space">&nbsp;}
+
+&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">32</span><span class="cpp1-symbol">;i++)
+&nbsp;{
+&nbsp;&nbsp;pbox[</span><span class="cpp1-number">63</span><span class="cpp1-symbol">-i]=(temp2&gt;&gt;i)&amp;</span><span class="cpp1-hexadecimal">0x1</span><span class="cpp1-symbol">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//corrosponds&nbsp;to&nbsp;pt[1]&nbsp;msb
+</span><span class="cpp1-space">&nbsp;}
+
+</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">64</span><span class="cpp1-symbol">;i++)
+&nbsp;{
+&nbsp;&nbsp;pbox_out[player[i]]&nbsp;=&nbsp;pbox[i];
+&nbsp;}
+
+&nbsp;result[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">32</span><span class="cpp1-symbol">;i++)
+&nbsp;{
+&nbsp;&nbsp;result[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;|=&nbsp;&nbsp;pbox_out[</span><span class="cpp1-number">31</span><span class="cpp1-symbol">-i]&lt;&lt;i;
+&nbsp;}
+
+&nbsp;result[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;=&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">32</span><span class="cpp1-symbol">;i++)
+&nbsp;{
+&nbsp;&nbsp;result[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;|=&nbsp;&nbsp;pbox_out[</span><span class="cpp1-number">63</span><span class="cpp1-symbol">-i]&lt;&lt;i;
+&nbsp;}
+}
+
+</span><span class="cpp1-comment">//******************************************Key&nbsp;layer**********************************************************
+</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;key_schedule_1(</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;a[],&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;b[])
+{
+</span><span class="cpp1-comment">//__________________
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(j=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;j&lt;=</span><span class="cpp1-number">2</span><span class="cpp1-symbol">;j++)
+&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;Key[</span><span class="cpp1-number">4</span><span class="cpp1-symbol">]={</span><span class="cpp1-hexadecimal">0x00000000</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x00000000</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x00000000</span><span class="cpp1-symbol">,</span><span class="cpp1-hexadecimal">0x00000000</span><span class="cpp1-symbol">};&nbsp;</span><span class="cpp1-comment">//hard&nbsp;coded&nbsp;128&nbsp;bit&nbsp;master&nbsp;key
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(j==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{a[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">];}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(j==</span><span class="cpp1-number">2</span><span class="cpp1-symbol">)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{b[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">];}
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;i&lt;</span><span class="cpp1-number">32</span><span class="cpp1-symbol">;i++)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;temp2&nbsp;=&nbsp;</span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp2&nbsp;=&nbsp;Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">];
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;&nbsp;=&nbsp;((Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0X7</span><span class="cpp1-symbol">)&lt;&lt;</span><span class="cpp1-number">29</span><span class="cpp1-symbol">)|(((Key[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0XFFFFFFF8</span><span class="cpp1-symbol">))&gt;&gt;</span><span class="cpp1-number">3</span><span class="cpp1-symbol">)&nbsp;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;&nbsp;=&nbsp;((Key[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0X7</span><span class="cpp1-symbol">)&lt;&lt;</span><span class="cpp1-number">29</span><span class="cpp1-symbol">)&nbsp;|(((Key[</span><span class="cpp1-number">3</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0XFFFFFFF8</span><span class="cpp1-symbol">))&gt;&gt;</span><span class="cpp1-number">3</span><span class="cpp1-symbol">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&nbsp;&nbsp;=&nbsp;((Key[</span><span class="cpp1-number">3</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0X7</span><span class="cpp1-symbol">)&lt;&lt;</span><span class="cpp1-number">29</span><span class="cpp1-symbol">)&nbsp;|(((temp1&amp;</span><span class="cpp1-hexadecimal">0XFFFFFFF8</span><span class="cpp1-symbol">))&gt;&gt;</span><span class="cpp1-number">3</span><span class="cpp1-symbol">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">3</span><span class="cpp1-symbol">]&nbsp;&nbsp;=&nbsp;((temp1&amp;</span><span class="cpp1-hexadecimal">0X7</span><span class="cpp1-symbol">)&lt;&lt;</span><span class="cpp1-number">29</span><span class="cpp1-symbol">)&nbsp;|(((temp2&amp;</span><span class="cpp1-hexadecimal">0XFFFFFFF8</span><span class="cpp1-symbol">))&gt;&gt;</span><span class="cpp1-number">3</span><span class="cpp1-symbol">);&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//left&nbsp;circular&nbsp;shift&nbsp;by&nbsp;61
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;(Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0xff000000</span><span class="cpp1-symbol">)&gt;&gt;</span><span class="cpp1-number">24</span><span class="cpp1-symbol">;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp2&nbsp;=&nbsp;sbox[temp1&amp;</span><span class="cpp1-hexadecimal">0xf</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;sbox[(temp1&gt;&gt;</span><span class="cpp1-number">4</span><span class="cpp1-symbol">)&amp;</span><span class="cpp1-hexadecimal">0xf</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;(temp1&lt;&lt;</span><span class="cpp1-number">4</span><span class="cpp1-symbol">)|temp2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;(Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0x00ffffff</span><span class="cpp1-symbol">)|(temp1&lt;&lt;</span><span class="cpp1-number">24</span><span class="cpp1-symbol">);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;((Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0x7</span><span class="cpp1-symbol">)&lt;&lt;</span><span class="cpp1-number">2</span><span class="cpp1-symbol">)|((Key[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0xc0000000</span><span class="cpp1-symbol">)&gt;&gt;</span><span class="cpp1-number">30</span><span class="cpp1-symbol">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp1&nbsp;=&nbsp;temp1&nbsp;^&nbsp;(i&amp;</span><span class="cpp1-hexadecimal">0x1f</span><span class="cpp1-symbol">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;=&nbsp;(Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0xfffffff8</span><span class="cpp1-symbol">)|((temp1&amp;</span><span class="cpp1-hexadecimal">0x1c</span><span class="cpp1-symbol">)&gt;&gt;</span><span class="cpp1-number">2</span><span class="cpp1-symbol">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&nbsp;=&nbsp;(Key[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&amp;</span><span class="cpp1-hexadecimal">0x3fffffff</span><span class="cpp1-symbol">)|((temp1&amp;</span><span class="cpp1-hexadecimal">0x03</span><span class="cpp1-symbol">)&lt;&lt;</span><span class="cpp1-number">30</span><span class="cpp1-symbol">);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(j==</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{a[i]&nbsp;=&nbsp;Key[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">];}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(j==</span><span class="cpp1-number">2</span><span class="cpp1-symbol">)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{b[i]&nbsp;=&nbsp;Key[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">];}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+}
+
+
+
+</span><span class="cpp1-comment">//******************************************main&nbsp;function**********************************************************
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;main()
+{
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;rk1[</span><span class="cpp1-number">32</span><span class="cpp1-symbol">]={</span><span class="cpp1-hexadecimal">0x0</span><span class="cpp1-symbol">},&nbsp;rk2[</span><span class="cpp1-number">32</span><span class="cpp1-symbol">]={</span><span class="cpp1-hexadecimal">0x0</span><span class="cpp1-symbol">},&nbsp;result[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">long</span><span class="cpp1-space">&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;pt[</span><span class="cpp1-number">2</span><span class="cpp1-symbol">]&nbsp;=&nbsp;{</span><span class="cpp1-hexadecimal">0x00000000</span><span class="cpp1-symbol">,&nbsp;</span><span class="cpp1-hexadecimal">0x00000000</span><span class="cpp1-symbol">};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;hardcoded&nbsp;plaintext
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">int</span><span class="cpp1-space">&nbsp;i;
+&nbsp;&nbsp;&nbsp;&nbsp;Lcd_Init();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;Initialize&nbsp;LCD
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;Lcd_Cmd(_LCD_CLEAR);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;Clear&nbsp;display
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;Lcd_Cmd(_LCD_CURSOR_OFF);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;Cursor&nbsp;off
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;key_schedule_1(rk1,rk2);
+&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//******************************************data&nbsp;layer**********************************************************
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(i=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;i&lt;=</span><span class="cpp1-number">31</span><span class="cpp1-symbol">;i++)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;(pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">])&nbsp;^&nbsp;(rk1[i-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;=&nbsp;(pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">])&nbsp;^&nbsp;(rk2[i-</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;s_box(pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;=&nbsp;s_box(pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_layer(pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">],&nbsp;pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">],&nbsp;result);
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;result[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;=&nbsp;result[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">];
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">/*********************************/
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;LongintTohex(rk[0][i],ch);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;Lcd_out(1,1,ch);
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongintTohex(pt[0],ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_out(1,1,ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongintTohex(pt[1],ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_out(1,10,ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IntTostr(i,ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_out(2,1,ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delay_ms(100);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_Cmd(_LCD_CLEAR);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*********************************/
+
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">//&nbsp;end&nbsp;of&nbsp;for&nbsp;loop&nbsp;i&nbsp;i.e.&nbsp;round
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]&nbsp;=&nbsp;pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">]^rk1[</span><span class="cpp1-number">31</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]&nbsp;=&nbsp;pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">]^rk2[</span><span class="cpp1-number">31</span><span class="cpp1-symbol">];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">/*********************************/
+</span><span class="cpp1-space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongintTohex(pt[</span><span class="cpp1-number">0</span><span class="cpp1-symbol">],ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_out(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LongintTohex(pt[</span><span class="cpp1-number">1</span><span class="cpp1-symbol">],ch);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_out(</span><span class="cpp1-number">1</span><span class="cpp1-symbol">,</span><span class="cpp1-number">10</span><span class="cpp1-symbol">,ch);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delay_ms(</span><span class="cpp1-number">10000</span><span class="cpp1-symbol">);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lcd_Cmd(_LCD_CLEAR);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cpp1-comment">/*********************************/
+
+</span><span class="cpp1-symbol">}
+</span></code></pre><!--EndFragment--></body>
+</html>

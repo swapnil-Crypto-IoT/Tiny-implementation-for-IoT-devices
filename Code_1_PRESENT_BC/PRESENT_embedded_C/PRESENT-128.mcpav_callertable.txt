@@ -1,0 +1,7 @@
+main
+	key_schedule_1
+		__CC2DW
+	s_box
+	p_layer
+		__CC2DW
+	__CC2DW
